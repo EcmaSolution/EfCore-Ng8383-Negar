@@ -19,7 +19,8 @@ builder.Services.AddTransient<IProductCategoryRepository, ProductCategoryReposit
 builder.Services.AddTransient<IProductApplication, ProductApplication>();
 builder.Services.AddTransient<IProductRepository, ProductRepository>();
 
-var connectionString = builder.Configuration.GetConnectionString("EfCoreProject");
+//var connectionString = builder.Configuration.GetConnectionString("EfCoreProject");
+var connectionString = builder.Configuration.GetConnectionString("EfCoreLocal");
 builder.Services.AddDbContext<EfContext>(x => x.UseSqlServer(connectionString));
 
 var app = builder.Build();
