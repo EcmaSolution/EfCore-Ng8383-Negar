@@ -11,4 +11,5 @@ public interface IProductRepository
     void Attach(Product product);
     bool Exists(string name, int categoryId);
     List<ProductViewModel> Search(ProductSearchModel product);
+    Product? GetProductToEdit(int productId);
 }

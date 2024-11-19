@@ -13,43 +13,44 @@
     <div class="table-responsive mt-4">
         <table class="table table-bordered table-hover table-striped shadow-sm">
             <thead class="thead-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">نام</th>
-                <th scope="col">قیمت</th>
-                <th scope="col">نام گروه</th>
-                <th scope="col">تاریخ ایجاد</th>
-                <th scope="col">عملیات</th>
-            </tr>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">نام</th>
+                    <th scope="col">قیمت</th>
+                    <th scope="col">نام گروه</th>
+                    <th scope="col">تاریخ ایجاد</th>
+                    <th scope="col">عملیات</th>
+                </tr>
             </thead>
             <tbody>
-            @foreach (var item in Model.Products)
-            {
-                <tr>
-                    <td>@item.Id</td>
-                    <td>@item.Name</td>
-                    <td>@item.UnitPrice</td>
-                    <td>@item.Category</td>
-                    <td>@item.CreationDate</td>
-                    <td>
-                        <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-warning">ویرایش</a>
-                        @if (item.IsRemoved)
-                        {
-                            <form method="post" asp-page="./Index" asp-page-handler="Restore" asp-route-id="@item.Id" style="display:inline;">
-                                <button type="submit" class="btn btn-success">بازگردانی</button>
-                            </form>
-                            @* <a asp-page="./Index" asp-page-handler="Restore" asp-route-id="@item.Id" class="btn btn-success">بازگردانی</a> *@
-                        }
-                        else
-                        {
-                            <form method="post" asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.Id" style="display:inline;">
-                                <button type="submit" class="btn btn-danger">غیرفعال کردن</button>
-                            </form>
-                            @* <a asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.Id" class="btn btn-danger">غیرفعال کردن</a> *@
-                        }
-                    </td>
-                </tr>
-            }
+                @foreach (var item in Model.Products)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.UnitPrice</td>
+                        <td>@item.Category</td>
+                        <td>@item.CreationDate</td>
+                        <td>
+                            <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-warning">ویرایش</a>
+
+                            @if (item.IsRemoved)
+                            {
+                                <form method="post" asp-page="/Product/Index" asp-page-handler="Restore" asp-route-id="@item.Id" style="display:inline;">
+                                    <button type="submit" class="btn btn-success">بازگردانی</button>
+                                </form>
+                                @* <a asp-page="./Index" asp-page-handler="Restore" asp-route-id="@item.Id" class="btn btn-success">بازگردانی</a> *@
+                            }
+                            else
+                            {
+                                <form method="post" asp-page="/Product/Index" asp-page-handler="Remove" asp-route-id="@item.Id" style="display:inline;">
+                                    <button type="submit" class="btn btn-danger">غیرفعال کردن</button>
+                                </form>
+                                @* <a asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.Id" class="btn btn-danger">غیرفعال کردن</a> *@
+                            }
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>

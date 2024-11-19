@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace EfCore_UseCase.Pages.Product;
 
-[BindProperties]
+//[BindProperties]
 public class Index : PageModel
 {
     

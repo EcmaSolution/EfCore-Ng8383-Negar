@@ -17,6 +17,11 @@ public class ProductRepository : IProductRepository
     {
         return context.Products.AsNoTracking().FirstOrDefault(x => x.Id == productId);
     }
+        
+    public Product? GetProductToEdit(int productId)
+    {
+        return context.Products.FirstOrDefault(x => x.Id == productId);
+    }
 
     public EditProduct? GetDetails(int id)
     {
@@ -42,7 +47,7 @@ public class ProductRepository : IProductRepository
 
     public void Attach(Product product)
     {
-        context.Attach(product);
+        context.Products.Attach(product);
     }
 
     public bool Exists(string name, int categoryId)

@@ -44,7 +44,7 @@ public class ProductApplication : IProductApplication
 
     public void Remove(int id)
     {
-        var product = productRepository.GetProduct(id);
+        var product = productRepository.GetProductToEdit(id);
         if (product == null)
         {
             return;
@@ -56,7 +56,7 @@ public class ProductApplication : IProductApplication
 
     public void Restore(int id)
     {
-        var product = productRepository.GetProduct(id);
+        var product = productRepository.GetProductToEdit(id);
         if (product == null)
         {
             return;
