@@ -1,0 +1,33 @@
+﻿@page
+@model EfCore_UseCase.Pages.Product.Edit
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+}
+<form action="" method="post">
+    <div class="row">
+
+        <div class="col-md-6 mb-3">
+            <label asp-for="@Model.Command!.Name" class="form-label">نام</label>
+            <input class="form-control" asp-for="@Model.Command!.Name">
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label asp-for="@Model.Command!.UnitPrice" class="form-label">قیمت</label>
+            <input class="form-control" asp-for="@Model.Command!.UnitPrice">
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label asp-for="@Model.Command!.CategoryId" class="form-label">گروه</label>
+            <select asp-items="@Model.ProductCategories" asp-for="@Model.Command!.CategoryId">
+                <option value="0">گروه محصولات را انتخاب کنید</option>
+            </select>
+        </div>
+
+        <input type="hidden" asp-for="@Model.Command!.Id" value="@Model.Command!.Id"/>
+
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-success">ویرایش کن</button>
+        </div>
+
+    </div>
+</form>

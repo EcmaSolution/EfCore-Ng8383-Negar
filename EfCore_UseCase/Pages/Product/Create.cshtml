@@ -1,0 +1,26 @@
+﻿@page
+@model EfCore_UseCase.Pages.Product.Create
+@{
+}
+
+<form method="post">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="name" class="form-label">نام</label>
+            <input class="form-control" name="name" id="name" type="text">
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="unitPrice" class="form-label">قیمت</label>
+            <input class="form-control" name="unitPrice" id="unitPrice" type="number">
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="categoryId" class="form-label">گروه</label>
+            <select asp-items="@Model.ProductCategories" name="categoryId" id="categoryId" class="form-control">
+                <option value="0">گروه محصولات را انتخاب کنید</option>
+            </select>
+        </div>
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-success">ایجاد</button>
+        </div>
+    </div>
+</form>
